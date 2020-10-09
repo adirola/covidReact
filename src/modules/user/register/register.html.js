@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from '../../../assets/img/logo.png';
 import './register.css'
 
 export default function () {
     return(
         <div class="register-container full-height sm-p-t-30 pageMargin">
             <div class="d-flex justify-content-center flex-column full-height " >
-                <img src={logo} alt="logo" data-src={logo} data-src-retina={logo} width="78" height="22" />
+                <img src="" alt="logo" data-src="" data-src-retina="" width="78" height="22" />
                 <p className="m-t-30">
                 Create a Clinic account.
                 </p>

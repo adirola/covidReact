@@ -7,8 +7,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
-import './assets/light.css';
-import './assets/pace-theme-flash.css';
+
 
 
 

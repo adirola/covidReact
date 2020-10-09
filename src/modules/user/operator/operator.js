@@ -4,7 +4,6 @@ import {withRouter} from 'react-router'
 import Operatorhtml from './operator.html'
 import store from '../../../store/store'
 import toastr from 'toastr'
-import socketIOClient from "socket.io-client";
 import { getDoc,toggleStatus } from '../../../actions/doctors';
 import { Env } from '../../../api.config';
 
@@ -48,19 +47,10 @@ class Operator extends Component {
         this.setState({doctorsList:docList.data});
     }
 
-    disconnect = (val) =>{
-        socket.emit('disconnect-patient', val._id)
-    }
-
-    connect = (val) =>{
-        socket.emit('connect-to-doctor', val._id)
-    }
 
     componentDidMount(){
         console.log(this.props.authenticate.info);
         store.dispatch(getDoc({fn:this.processDoc,scope:this}))
-        socket = socketIOClient(this.state.endpoint,{query: `operator=${this.props.authenticate&&this.props.authenticate.info ?this.props.authenticate.info.data.name:'test'}`});
-        socket.on('patients',patients => {this.setState({data:patients})});
     }
 
     render(){

@@ -1,0 +1,11 @@
+html, body, #fullheight {
+    min-height: 100% !important;
+    height: 100%;
+}
+.heightfix{
+    height: 790px !important;
+}
+.bg10Section{
+    background-image: url(../../../assets/demo/bg/bg-77.svg);
+    background-position: 500% 0%;
+}
