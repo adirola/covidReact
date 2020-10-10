@@ -5,6 +5,7 @@ import Signinhtml from './signin.html'
 import store from '../../../store/store'
 import toastr from 'toastr'
 
+
 import {auth} from '../../../actions/authenticate';
 
 
@@ -17,27 +18,34 @@ class Signin1 extends Component {
         }
     }
 
-    afterAuth = (data) =>{
-        console.log(data);
-        if(data && data.data){
-            if(data.data.role.toLowerCase() === 'operator'){
-            this.props.history.push('/operator')
-            }else{
-            this.props.history.push('/patient')
-            }
-        }
+    componentDidMount(){
+        var settings = {};
+        settings['canvas'] = document.getElementById('tablet-canvas');
+        settings['canvasScale'] = .5;
+        var library = this.getLibrarySettings(settings);
+        console.log(library);
+
+
     }
 
-    handleAuth = (e)=>{
-        e.preventDefault();
-        if(this.state.username === '' || this.state.password === ''){
-            toastr.error("Please enter username and password");
-        }else if(this.state.username.trim() === '' || this.state.password.trim() === ''){
-            toastr.error("Please enter username and password");
-        }
-
-        store.dispatch(((auth({email:this.state.username,password:this.state.password},{fn:this.afterAuth,scope:this}))));
-
+    getLibrarySettings = (a) =>{
+        a = a || {};
+        this.window_ = a.window || window;
+        this.document_ = a.document || window.document;
+        this.onError_ = a.onError || null;
+        this.onAssetLoadError_ = a.onAssetLoadError || null;
+        this.soundManager_ = a.soundManager || this.window_.soundManager;
+        this.url_ = a.url || "" + this.window_.location;
+        this.lineWidth_ = this.initialLineWidth_;
+        this.textAlign_ = this.initialTextAlign_;
+        this.loadedSounds_ = {};
+        this.initialFillStyle_ = this.initialStrokeStyle_ = "#000";
+        this.initialFontFace_ = "Roboto";
+        this.initialFontSize_ = 40;
+        this.canvasScale_ = a.canvasScale || 1;
+        this.canvas_ = a.canvas;
+        console.log(a.canvas);
+        console.log(this.window_);
     }
 
     register = () =>{

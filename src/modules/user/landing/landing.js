@@ -41,6 +41,10 @@ class LandingPage extends Component {
 
     }
 
+    gotoCanvas = () =>{
+        this.props.history.push('/signin')
+    }
+
     register = () =>{
         this.props.history.push('/register')
     }

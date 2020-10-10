@@ -6,7 +6,7 @@ import './App.css';
 
 import './toastr.min.css'
 
-import Signin from './modules/user/signin/signin';
+import Signin1 from './modules/user/signin/signin';
 import Operator from './modules/user/operator/operator';
 import Patient from './modules/user/patient/patient';
 import Register from './modules/user/register/register'
@@ -48,12 +48,13 @@ class App extends Component {
       <section className="App">
         <main className="content">
           <article>
-            <section className="heightfix">
+            <section className="">
               <Switch>
                 <Route exact path='/' component={Landing}  />
                 <Route path='/operator' component={Operator}  />
                 <Route path='/patient' component={Patient} />
                 <Route path='/register' component={Register} />
+                <Route path='/signin' component={Signin1} />
               </Switch>
             </section>
             <section>

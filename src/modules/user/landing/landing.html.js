@@ -22,7 +22,7 @@ export default function () {
                     <a
                     href="#ordernow"
                     className="btn btn-solid text-uppercase btn-md circle btn-bordered border-thin btn-gradient font-weight-bold px-2">
-                        <span>
+                        <span onClick={(e)=>this.gotoCanvas(e)}>
                             <span className="btn-gradient-bg"></span>
                             <span className="btn-txt">Login</span>
                             <span className="btn-gradient-bg btn-gradient-bg-hover"></span>
