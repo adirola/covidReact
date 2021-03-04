@@ -2,17 +2,12 @@ import React,{Component} from 'react';
 import {Switch,Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router'
-import logo from './logo.svg';
 import './App.css';
 
 import './toastr.min.css'
 
-import Signin from './modules/user/signin/signin';
-import Operator from './modules/user/operator/operator';
-import Patient from './modules/user/patient/patient';
-import Register from './modules/user/register/register'
+import SwapComponent from './modules/pool/swap/swap';
 
-import {auth} from './actions/authenticate';
 import store from './store/store';
 import StateLoader from './store/StateLoader';
 
@@ -30,7 +25,7 @@ class App extends Component {
 
   componentDidMount(){
 
-    document.title = 'Covid Clinic';
+    document.title = 'Melon Finance';
     window.baseApiUrl =  window.location.host.indexOf('localhost') >= 0 ? 'http://' + window.location.host + '/' : 'https://' + window.location.host + '/'
     this.subscription = store.subscribe(()=>{
       this.stateLoader.saveState(store.getState());
@@ -45,12 +40,11 @@ class App extends Component {
         <main>
           <article>
             <section>
-              <Switch>
-                <Route exact path='/' component={Signin}  />
-                <Route path='/operator' component={Operator}  />
-                <Route path='/patient' component={Patient} />
-                <Route path='/register' component={Register} />
-              </Switch>
+              <div className="container">
+                <Switch>
+                  <Route exact path='/' component={SwapComponent} />
+                </Switch>
+              </div>
             </section>
           </article>
         </main>
